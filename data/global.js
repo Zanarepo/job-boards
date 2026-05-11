@@ -1,25 +1,7 @@
 const globalBoards = [
-    {
-        id: "indeed",
-        name: "Indeed",
-        url: "https://www.indeed.com/",
-        description: "Comprehensive job search engine with millions of listings across every industry globally.",
-        category: "Global",
-        region: "Global",
-        badges: ["All Roles", "International"],
-        icon: "🔍"
-    },
     // REMOTE FOCUS
-    {
-        id: "wwr",
-        name: "We Work Remotely",
-        url: "https://weworkremotely.com/",
-        description: "The largest remote work community in the world. High-quality tech and creative roles.",
-        category: "Remote",
-        region: "Global",
-        badges: ["100% Remote", "SaaS", "Dev"],
-        icon: "🏠"
-    },
+
+
     {
         id: "remoteok",
         name: "Remote OK",
@@ -141,16 +123,7 @@ const globalBoards = [
         icon: "🌏"
     },
     // SAAS & STARTUPS
-    {
-        id: "wellfound",
-        name: "Wellfound (AngelList)",
-        url: "https://wellfound.com/jobs",
-        description: "The best place to find jobs at startups. SaaS, Fintech, and emerging tech focus.",
-        category: "SaaS",
-        region: "Global",
-        badges: ["Startups", "Equity", "SaaS"],
-        icon: "✌️"
-    },
+
     {
         id: "ycombinator",
         name: "Y Combinator",
@@ -191,65 +164,4 @@ const globalBoards = [
         badges: ["Startups", "VC-backed", "Global"],
         icon: "🚀"
     },
-    // FREELANCE / FAAS
-    {
-        id: "toptal",
-        name: "Toptal",
-        url: "https://www.toptal.com/",
-        description: "Exclusive network of the top 3% of freelance talent globally.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Elite", "Freelance", "High End"],
-        icon: "💎"
-    },
-    {
-        id: "upwork",
-        name: "Upwork",
-        url: "https://www.upwork.com/",
-        description: "World's largest freelance marketplace for all types of digital work.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Freelance", "Gigs", "Global"],
-        icon: "🟢"
-    },
-    {
-        id: "fiverr",
-        name: "Fiverr",
-        url: "https://www.fiverr.com/",
-        description: "Marketplace for creative and digital services starting from micro-gigs to enterprise projects.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Gigs", "Creative", "Global"],
-        icon: "🎯"
-    },
-    {
-        id: "peopleperhour",
-        name: "PeoplePerHour",
-        url: "https://www.peopleperhour.com/",
-        description: "UK-origin freelance platform popular for design, writing, and development projects.",
-        category: "FaaS",
-        region: "Europe",
-        badges: ["UK", "Freelance", "Digital"],
-        icon: "⏱️"
-    },
-    {
-        id: "contra",
-        name: "Contra",
-        url: "https://contra.com/",
-        description: "Commission-free freelance platform with a portfolio-first approach for independent workers.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["0% Commission", "Portfolio", "Freelance"],
-        icon: "🎨"
-    },
-    {
-        id: "guru",
-        name: "Guru",
-        url: "https://www.guru.com/",
-        description: "Freelance marketplace with workroom collaboration tools for long-term client relationships.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Freelance", "Collaboration", "Long-term"],
-        icon: "🧘"
-    }
 ];

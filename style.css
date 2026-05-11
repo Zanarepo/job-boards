@@ -838,7 +838,61 @@ footer {
     line-height: 1.5;
 }
 
+/* ===== FEATURED SECTION ===== */
+.featured-section {
+    margin-bottom: 4rem;
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.featured-card {
+    background: linear-gradient(135deg, var(--bg-card), rgba(110, 231, 183, 0.03));
+    border-color: rgba(110, 231, 183, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), transparent);
+}
+
+.featured-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px -10px rgba(110, 231, 183, 0.2);
+}
+
+.featured-badge {
+    background: var(--primary);
+    color: #0a0f1e;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
 /* ===== PARTNERS SECTION ===== */
+
 .partners-section {
     margin-bottom: 3rem;
 }

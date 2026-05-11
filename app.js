@@ -1,10 +1,37 @@
 const jobBoards = [
+    ...featuredBoards,
+    ...governmentBoards,
+    ...ngoBoards,
+    ...internshipBoards,
+    ...volunteerBoards,
+    ...aiTaskBoards,
+    ...medicalBoards,
+    ...apprenticeshipBoards,
+    ...sustainabilityBoards,
+    ...web3Boards,
+    ...creativeBoards,
+    ...cybersecurityBoards,
+    ...marketingBoards,
+    ...eventBoards,
+    ...musicBoards,
     ...globalBoards,
+
+
+
+
+
+
+
+
     ...africaBoards,
     ...europeBoards,
     ...americasBoards,
-    ...asiaBoards
+    ...asiaBoards,
+    ...freelanceBoards
 ];
+
+
+
 
 
 // --- STORAGE KEYS ---
@@ -26,6 +53,31 @@ function renderPartners() {
                 <p>${partner.description}</p>
                 <a href="${partner.link}" class="partner-link">${partner.cta}</a>
             </div>
+        </div>
+    `).join('');
+}
+
+// --- FEATURED BOARDS ---
+function renderFeatured() {
+    const featuredGrid = document.getElementById('featuredGrid');
+    if (!featuredGrid) return;
+
+    featuredGrid.innerHTML = featuredBoards.map(board => `
+        <div class="board-card featured-card">
+            <div class="card-header">
+                <div class="icon-wrapper">${board.icon || '✨'}</div>
+                <h3>${board.name}</h3>
+                <span class="featured-badge">Featured</span>
+            </div>
+            <p>${board.description}</p>
+            <div class="badge-list">
+                <span class="badge region-badge">${board.region}</span>
+                ${(board.badges || []).map(badge => `<span class="badge">${badge}</span>`).join('')}
+            </div>
+            <a href="${board.url}" target="_blank" class="visit-btn">
+                Visit Website
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
         </div>
     `).join('');
 }
@@ -92,6 +144,7 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const themeToggle = document.getElementById('themeToggle');
 
 const openModalBtn = document.getElementById('openSubmitModal');
+const openModalBtn2 = document.getElementById('openSubmitModal2');
 const modal = document.getElementById('submitModal');
 const closeModalBtn = document.getElementById('closeModal');
 const submitForm = document.getElementById('submitForm');
@@ -130,24 +183,26 @@ function renderBoards(filteredBoards) {
     filteredBoards.forEach(board => {
         const card = document.createElement('div');
         card.className = 'board-card' + (board.submitted ? ' submitted-card' : '');
-        const voteCount = votes[board.id] || 0;
-        const hasVoted = userVotes.includes(board.id);
+        const voteCount = (board.id && votes[board.id]) || 0;
+        const hasVoted = board.id && userVotes.includes(board.id);
+        const badges = board.badges || [];
 
         card.innerHTML = `
             <div class="card-header">
-                <div class="icon-wrapper">${board.icon}</div>
-                <h3>${board.name}</h3>
+                <div class="icon-wrapper">${board.icon || '📌'}</div>
+                <h3>${board.name || 'Untitled Board'}</h3>
                 ${board.submitted ? '<span class="community-tag">Community</span>' : ''}
-                <button class="upvote-btn ${hasVoted ? 'voted' : ''}" data-id="${board.id}">
+                <button class="upvote-btn ${hasVoted ? 'voted' : ''}" data-id="${board.id || ''}">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="${hasVoted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <span>${voteCount}</span>
                 </button>
             </div>
-            <p>${board.description}</p>
+            <p>${board.description || 'No description available.'}</p>
             <div class="badge-list">
-                <span class="badge region-badge">${board.region}</span>
-                ${board.badges.map(badge => `<span class="badge">${badge}</span>`).join('')}
+                <span class="badge region-badge">${board.region || 'Global'}</span>
+                ${badges.map(badge => `<span class="badge">${badge}</span>`).join('')}
             </div>
+
             <a href="${board.url}" target="_blank" class="visit-btn">
                 Visit Website 
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -171,12 +226,37 @@ function updateStats() {
     const allBoards = [...jobBoards, ...getSubmissions()];
     const boardCount = allBoards.length;
     const categories = new Set(allBoards.map(b => b.category)).size;
-    const regions = new Set(allBoards.map(b => b.region)).size;
+    
+    // Map regions to continents to get an accurate count
+    const continentMap = {
+        'Africa': 'Africa',
+        'Europe': 'Europe',
+        'UK': 'Europe',
+        'Germany': 'Europe',
+        'France': 'Europe',
+        'Spain': 'Europe',
+        'Italy': 'Europe',
+        'Asia': 'Asia',
+        'India': 'Asia',
+        'China': 'Asia',
+        'Japan': 'Asia',
+        'North America': 'North America',
+        'South America': 'South America',
+        'Americas': 'Americas',
+        'USA': 'North America',
+        'Canada': 'North America',
+        'Australia': 'Oceania',
+        'Oceania': 'Oceania',
+        'Global': 'Global'
+    };
 
+    const uniqueContinents = new Set(allBoards.map(b => continentMap[b.region] || 'Global'));
+    
     document.getElementById('statBoards').textContent = boardCount;
-    document.getElementById('statRegions').textContent = regions;
+    document.getElementById('statRegions').textContent = uniqueContinents.size;
     document.getElementById('statCategories').textContent = categories;
 }
+
 
 // --- FILTER & SORT ---
 const sortSelect = document.getElementById('sortSelect');
@@ -193,9 +273,19 @@ function filter() {
     const votes = getVotes();
 
     let filtered = allBoards.filter(board => {
-        const matchesSearch = board.name.toLowerCase().includes(searchTerm) ||
-            board.description.toLowerCase().includes(searchTerm) ||
-            board.region.toLowerCase().includes(searchTerm);
+        const name = board.name || '';
+        const desc = board.description || '';
+        const region = board.region || '';
+        const category = board.category || '';
+        const badges = board.badges || [];
+
+        const matchesSearch = name.toLowerCase().includes(searchTerm) ||
+            desc.toLowerCase().includes(searchTerm) ||
+            region.toLowerCase().includes(searchTerm) ||
+            category.toLowerCase().includes(searchTerm) ||
+            badges.some(badge => badge.toLowerCase().includes(searchTerm));
+
+
 
         let matchesFilter = true;
         if (filterValue === 'Favorites') {
@@ -266,6 +356,7 @@ filterBtns.forEach(btn => {
     });
 });
 
+
 // --- MODAL ---
 function openModal() {
     modal.classList.add('active');
@@ -280,8 +371,10 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-openModalBtn.addEventListener('click', openModal);
+if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+if (openModalBtn2) openModalBtn2.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
+
 modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
@@ -323,5 +416,6 @@ submitForm.addEventListener('submit', (e) => {
 // --- INIT ---
 initTheme();
 renderPartners();
+renderFeatured();
 renderBoards(jobBoards);
 updateStats();
