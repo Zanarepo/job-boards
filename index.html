@@ -33,6 +33,7 @@
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#boards">Job Boards</a>
+                <button id="openTipsModal" class="nav-link-btn">Job Tips</button>
             </div>
             <button id="openSubmitModal" class="submit-nav-btn">+ Submit a Board</button>
             <button id="themeToggle" class="theme-toggle" title="Toggle Theme">🌙</button>
@@ -44,6 +45,24 @@
         <p>The definitive directory of job boards across Africa, Americas, Europe, and Asia. Find remote, SaaS, and
             digital product roles anywhere.</p>
 
+        <div class="hero-stats" id="heroStats">
+            <div class="stat-item">
+                <span class="stat-value" id="statBoards">0</span>
+                <span class="stat-label">Job Boards</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value" id="statRegions">5</span>
+                <span class="stat-label">Continents</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value" id="statCategories">8</span>
+                <span class="stat-label">Categories</span>
+            </div>
+        </div>
+
+
         <div class="search-container">
             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -53,28 +72,53 @@
             <input type="text" id="search" class="search-bar" placeholder="Search by region, platform, or keyword...">
         </div>
 
-        <div class="filters">
-            <button class="filter-btn active" data-type="category" data-value="All">All Boards</button>
-            <div class="filter-group">
-                <button class="filter-btn" data-type="region" data-value="Africa">Africa</button>
-                <button class="filter-btn" data-type="region" data-value="Europe">Europe</button>
-                <button class="filter-btn" data-type="region" data-value="North America">North America</button>
-                <button class="filter-btn" data-type="region" data-value="South America">South America</button>
-                <button class="filter-btn" data-type="region" data-value="Asia">Asia</button>
+        <div class="filter-controls">
+            <div class="filters">
+                <button class="filter-btn active" data-type="category" data-value="All">All Boards</button>
+                <button class="filter-btn favorite-filter" data-type="special" data-value="Favorites">⭐ My Favorites</button>
+                
+                <div class="filter-group">
+                    <button class="filter-btn" data-type="region" data-value="Africa">Africa</button>
+                    <button class="filter-btn" data-type="region" data-value="Europe">Europe</button>
+                    <button class="filter-btn" data-type="region" data-value="North America">North America</button>
+                    <button class="filter-btn" data-type="region" data-value="South America">South America</button>
+                    <button class="filter-btn" data-type="region" data-value="Asia">Asia</button>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn" data-type="category" data-value="Remote">Remote Focus</button>
+                    <button class="filter-btn" data-type="category" data-value="SaaS">SaaS/Startups</button>
+                    <button class="filter-btn" data-type="category" data-value="FaaS">Freelance/FaaS</button>
+                </div>
             </div>
-            <div class="filter-group">
-                <button class="filter-btn" data-type="category" data-value="Remote">Remote Focus</button>
-                <button class="filter-btn" data-type="category" data-value="SaaS">SaaS/Startups</button>
-                <button class="filter-btn" data-type="category" data-value="FaaS">Freelance/FaaS</button>
+
+            <div class="sort-container">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="popularity">Most Popular</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="newest">Recently Added</option>
+                </select>
             </div>
         </div>
+
     </header>
 
+
     <main id="boards">
+        <!-- Partner Resources Section -->
+        <section class="partners-section">
+            <div class="section-tag">Partner Resources</div>
+            <div class="partners-grid" id="partnersGrid">
+                <!-- Injected by JS -->
+            </div>
+        </section>
+
+
         <div class="job-boards-grid" id="jobBoardsGrid">
             <!-- Cards injected by JS -->
         </div>
     </main>
+
 
     <!-- Submit a Board CTA Banner -->
     <section class="submit-banner">
@@ -87,10 +131,27 @@
         </div>
     </section>
 
-    <footer id="about">
-        <p>&copy; 2026 GlobalJobHub. Built for the modern remote workforce.</p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Designed with ❤️ for Global Talent.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 GlobalJobHub. The ultimate remote work directory.</p>
+                <div class="footer-contact">
+                    <span>Partner with us:</span>
+                    <a href="mailto:prinzana@gmail.com" class="contact-link">prinzana@gmail.com</a>
+                    <span class="contact-divider">|</span>
+                    <a href="https://wa.me/2349167690043" target="_blank" class="contact-link">WhatsApp for Partnership</a>
+                </div>
+
+            </div>
+            <div class="footer-right">
+                <div class="bmc-link coming-soon" title="Donations coming soon to your region!">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.21,15h-0.2c0.35-0.5,0.56-1.1,0.56-1.76c0-1.79-1.45-3.24-3.24-3.24h-1.34v-5c0-1.66-1.34-3-3-3H6.5c-1.66,0-3,1.34-3,3v10c0,1.66,1.34,3,3,3H13c1.66,0,3-1.34,3-3v-2h1.34c0.68,0,1.24,0.56,1.24,1.24c0,0.68-0.56,1.24-1.24,1.24h-1.34v2h2.21c1.1,0,2-0.9,2-2S21.31,15,20.21,15z M6.5,5h6.5v10h-6.5V5z M13,15h-6.5v1h6.5V15z"></path></svg>
+                    Coming Soon
+                </div>
+            </div>
+        </div>
     </footer>
+
 
     <!-- Submit Modal -->
     <div id="submitModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -150,7 +211,50 @@
         </div>
     </div>
 
+    <!-- Tips Modal -->
+    <div id="tipsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tipsTitle">
+        <div class="modal tips-modal">
+            <div class="modal-header">
+                <h2 id="tipsTitle">🚀 Remote Job Search Tips</h2>
+                <button id="closeTipsModal" class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <h3>🎯 Optimize for Keywords</h3>
+                    <p>Remote companies use ATS. Ensure your CV mentions specific tools like Slack, Zoom, Jira, and Asana.</p>
+                </div>
+                <div class="tip-item">
+                    <h3>🌍 Timezone Overlap</h3>
+                    <p>Applying to US/Europe from Africa/Asia? State clearly: "Willing to overlap 4+ hours with EST/CET timezones."</p>
+                </div>
+                <div class="tip-item">
+                    <h3>📎 Proof of Work</h3>
+                    <p>Links to GitHub, Behance, or a personal blog are worth 1000x more than a degree in the remote world.</p>
+                </div>
+                <div class="tip-item">
+                    <h3>🤝 Networking is Key</h3>
+                    <p>Don't just apply. Find the hiring manager on LinkedIn and send a polite, 2-sentence note about your interest.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-submit-btn" onclick="document.getElementById('closeTipsModal').click()">Got it, thanks!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Layers -->
+    <script src="data/africa.js"></script>
+    <script src="data/europe.js"></script>
+    <script src="data/americas.js"></script>
+    <script src="data/asia.js"></script>
+    <script src="data/global.js"></script>
+    <script src="data/partners.js"></script>
+
+    
     <script src="app.js"></script>
+
+
     <script>
         // Wire up the second submit button in the banner
         document.getElementById('openSubmitModal2').addEventListener('click', () => {

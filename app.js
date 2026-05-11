@@ -1,528 +1,75 @@
 const jobBoards = [
-    // GLOBAL & NORTH AMERICA
-    {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/jobs/",
-        description: "The world's largest professional network. Excellent for all roles including remote and hybrid.",
-        category: "Global",
-        region: "North America",
-        badges: ["Remote", "Hybrid", "Global"],
-        icon: "💼"
-    },
-    {
-        name: "Indeed",
-        url: "https://www.indeed.com/",
-        description: "Comprehensive job search engine with millions of listings across every industry globally.",
-        category: "Global",
-        region: "Global",
-        badges: ["All Roles", "International"],
-        icon: "🔍"
-    },
-    {
-        name: "Built In",
-        url: "https://builtin.com/",
-        description: "The hub for startups and tech companies in major US tech hubs.",
-        category: "Tech",
-        region: "North America",
-        badges: ["Tech", "Startups", "USA"],
-        icon: "🏗️"
-    },
-    {
-        name: "Hired",
-        url: "https://hired.com/",
-        description: "Companies apply to you. Focused on tech, product, and design roles in North America and UK.",
-        category: "Tech",
-        region: "North America",
-        badges: ["Tech", "High Pay", "Vetted"],
-        icon: "🤝"
-    },
-    {
-        name: "Dice",
-        url: "https://www.dice.com/",
-        description: "The leading tech job board in the US with thousands of remote and on-site roles for engineers.",
-        category: "Tech",
-        region: "North America",
-        badges: ["Tech", "Engineering", "USA"],
-        icon: "🎲"
-    },
-    {
-        name: "ZipRecruiter",
-        url: "https://www.ziprecruiter.com/",
-        description: "AI-powered job matching platform connecting millions of job seekers and employers in North America.",
-        category: "Global",
-        region: "North America",
-        badges: ["AI Match", "All Roles", "USA"],
-        icon: "⚡"
-    },
-    {
-        name: "Glassdoor",
-        url: "https://www.glassdoor.com/Job/",
-        description: "Job listings combined with insider company reviews, salaries, and interview insights.",
-        category: "Global",
-        region: "North America",
-        badges: ["Reviews", "Salary Data", "Global"],
-        icon: "🚪"
-    },
-
-    // REMOTE FOCUS
-    {
-        name: "We Work Remotely",
-        url: "https://weworkremotely.com/",
-        description: "The largest remote work community in the world. High-quality tech and creative roles.",
-        category: "Remote",
-        region: "Global",
-        badges: ["100% Remote", "SaaS", "Dev"],
-        icon: "🏠"
-    },
-    {
-        name: "Remote OK",
-        url: "https://remoteok.com/",
-        description: "Popular platform for digital nomads and remote workers. Great for devs and designers.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Nomad", "High Pay", "Tech"],
-        icon: "✅"
-    },
-    {
-        name: "Remote.co",
-        url: "https://remote.co/remote-jobs/",
-        description: "Curated remote job listings across customer service, marketing, tech, and more.",
-        category: "Remote",
-        region: "Global",
-        badges: ["100% Remote", "Curated", "All Roles"],
-        icon: "🌐"
-    },
-    {
-        name: "FlexJobs",
-        url: "https://www.flexjobs.com/",
-        description: "Screened and verified remote, hybrid, and flexible jobs. Zero scam listings guaranteed.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Verified", "Remote", "Flexible"],
-        icon: "🔒"
-    },
-    {
-        name: "Remotive",
-        url: "https://remotive.com/",
-        description: "Curated remote tech jobs from top companies. Also features a thriving Slack community.",
-        category: "Remote",
-        region: "Global",
-        badges: ["100% Remote", "Tech", "Community"],
-        icon: "📡"
-    },
-    {
-        name: "Remote Leaf",
-        url: "https://remoteleaf.com/",
-        description: "Hand-picked remote jobs aggregated daily from 50+ sources into one clean feed.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Aggregator", "Daily", "Tech"],
-        icon: "🍃"
-    },
-    {
-        name: "Jobspresso",
-        url: "https://jobspresso.co/",
-        description: "High-quality, hand-picked remote jobs in tech, marketing, customer support, and more.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Curated", "Remote", "Quality"],
-        icon: "☕"
-    },
-    {
-        name: "Himalayas",
-        url: "https://himalayas.app/",
-        description: "Async-first remote jobs with deep company profiles, timezone filters, and salary ranges.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Async", "Remote", "Profiles"],
-        icon: "🏔️"
-    },
-    {
-        name: "NoDesk",
-        url: "https://nodesk.co/remote-jobs/",
-        description: "Remote job listings paired with a curated directory of remote work resources and tools.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Remote", "Resources", "Dev"],
-        icon: "💻"
-    },
-    {
-        name: "Dynamite Jobs",
-        url: "https://dynamitejobs.com/",
-        description: "The home of bootstrapped and indie company remote jobs — great for culture-fit seekers.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Indie", "Remote", "Bootstrapped"],
-        icon: "🧨"
-    },
-    {
-        name: "4 Day Week",
-        url: "https://4dayweek.io/",
-        description: "Remote jobs at companies with a 4-day work week. Work smarter, not longer.",
-        category: "Remote",
-        region: "Global",
-        badges: ["4-Day Week", "Remote", "Work-Life"],
-        icon: "📅"
-    },
-    {
-        name: "Working Nomads",
-        url: "https://www.workingnomads.com/jobs",
-        description: "Curated list of remote digital jobs for location-independent professionals and nomads.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Nomad", "Remote", "Digital"],
-        icon: "🧳"
-    },
-    {
-        name: "Pangian",
-        url: "https://pangian.com/",
-        description: "Remote-first job network with a strong global community and company culture pages.",
-        category: "Remote",
-        region: "Global",
-        badges: ["Community", "Remote", "Global"],
-        icon: "🌏"
-    },
-
-    // AFRICA
-    {
-        name: "Jobberman",
-        url: "https://www.jobberman.com/",
-        description: "West Africa's largest job portal, focusing on Nigeria and Ghana.",
-        category: "Global",
-        region: "Africa",
-        badges: ["Nigeria", "Ghana", "Africa"],
-        icon: "🇳🇬"
-    },
-    {
-        name: "BrighterMonday",
-        url: "https://www.brightermonday.co.ke/",
-        description: "The leading job site in East Africa, covering Kenya, Uganda, and Tanzania.",
-        category: "Global",
-        region: "Africa",
-        badges: ["Kenya", "East Africa"],
-        icon: "🇰🇪"
-    },
-    {
-        name: "Pnet",
-        url: "https://www.pnet.co.za/",
-        description: "One of South Africa's leading online recruitment portals.",
-        category: "Global",
-        region: "Africa",
-        badges: ["South Africa", "Corporate"],
-        icon: "🇿🇦"
-    },
-    {
-        name: "TechCity Jobs",
-        url: "https://www.techcityng.com/",
-        description: "Tech-focused job listings and news for the African technology ecosystem.",
-        category: "Tech",
-        region: "Africa",
-        badges: ["Tech", "Africa", "Startups"],
-        icon: "🏙️"
-    },
-    {
-        name: "Fuzu",
-        url: "https://www.fuzu.com/",
-        description: "Career growth platform covering Kenya, Uganda, Nigeria and more with learning resources.",
-        category: "Global",
-        region: "Africa",
-        badges: ["East Africa", "Learning", "Growth"],
-        icon: "🌱"
-    },
-    {
-        name: "Africa Job Board",
-        url: "https://www.africajobboard.com/",
-        description: "Pan-African job listings spanning multiple industries and countries across the continent.",
-        category: "Global",
-        region: "Africa",
-        badges: ["Pan-Africa", "All Roles"],
-        icon: "🌍"
-    },
-    {
-        name: "Findwork Africa",
-        url: "https://findwork.africa/",
-        description: "Remote and local tech opportunities specifically targeting African talent.",
-        category: "Remote",
-        region: "Africa",
-        badges: ["Remote", "Tech", "Africa"],
-        icon: "📲"
-    },
-    {
-        name: "Shortlist",
-        url: "https://shortlist.co/",
-        description: "Connecting high-growth companies in Africa and India with top professional talent.",
-        category: "Tech",
-        region: "Africa",
-        badges: ["Africa", "India", "Vetted"],
-        icon: "📋"
-    },
-
-    // EUROPE
-    {
-        name: "Otta",
-        url: "https://otta.com/",
-        description: "Highly personalized job search for tech workers. Strong presence in UK and Europe.",
-        category: "Tech",
-        region: "Europe",
-        badges: ["Smart Match", "Europe", "UK"],
-        icon: "🐙"
-    },
-    {
-        name: "Welcome to the Jungle",
-        url: "https://www.welcometothejungle.com/",
-        description: "The best place to explore company cultures and find jobs in France and Europe.",
-        category: "Digital",
-        region: "Europe",
-        badges: ["Culture", "Europe", "Design"],
-        icon: "🌴"
-    },
-    {
-        name: "Honeypot",
-        url: "https://www.honeypot.io/",
-        description: "Europe's developer-focused job platform where companies apply to you.",
-        category: "Tech",
-        region: "Europe",
-        badges: ["Dev Only", "Germany", "Europe"],
-        icon: "🍯"
-    },
-    {
-        name: "Jobbatical",
-        url: "https://jobbatical.com/",
-        description: "Connecting tech talent with companies that offer relocation and visa sponsorship.",
-        category: "Remote",
-        region: "Europe",
-        badges: ["Relocation", "Global", "Tech"],
-        icon: "🌍"
-    },
-    {
-        name: "EuropeRemotely",
-        url: "https://europeremotely.com/",
-        description: "Remote jobs open specifically to European timezones and candidates.",
-        category: "Remote",
-        region: "Europe",
-        badges: ["EU Timezone", "Remote", "Tech"],
-        icon: "🇪🇺"
-    },
-    {
-        name: "Jobteaser",
-        url: "https://www.jobteaser.com/",
-        description: "The go-to student and graduate job board across universities in Europe.",
-        category: "Global",
-        region: "Europe",
-        badges: ["Graduates", "Europe", "Entry Level"],
-        icon: "🎓"
-    },
-    {
-        name: "StepStone",
-        url: "https://www.stepstone.de/",
-        description: "One of Europe's largest job marketplaces, particularly dominant in Germany.",
-        category: "Global",
-        region: "Europe",
-        badges: ["Germany", "Europe", "All Roles"],
-        icon: "🪨"
-    },
-
-    // SOUTH AMERICA
-    {
-        name: "Getonbrd",
-        url: "https://www.getonbrd.com/",
-        description: "The leading platform for tech jobs in Latin America.",
-        category: "Tech",
-        region: "South America",
-        badges: ["LatAm", "Tech", "Remote"],
-        icon: "🚢"
-    },
-    {
-        name: "Torre",
-        url: "https://torre.ai/",
-        description: "A new way to find work globally, with a very strong user base in Latin America.",
-        category: "Remote",
-        region: "South America",
-        badges: ["AI Match", "LatAm", "Global"],
-        icon: "🗼"
-    },
-    {
-        name: "Workana",
-        url: "https://www.workana.com/",
-        description: "The largest freelance marketplace for Spanish and Portuguese speakers.",
-        category: "FaaS",
-        region: "South America",
-        badges: ["Freelance", "LatAm", "Spanish"],
-        icon: "🚜"
-    },
-    {
-        name: "InfoJobs Brazil",
-        url: "https://www.infojobs.com.br/",
-        description: "One of the most visited job sites in Brazil for all professional levels.",
-        category: "Global",
-        region: "South America",
-        badges: ["Brazil", "All Levels"],
-        icon: "🇧🇷"
-    },
-    {
-        name: "Computrabajo",
-        url: "https://www.computrabajo.com/",
-        description: "A major job portal covering Mexico, Colombia, Argentina, Chile and more.",
-        category: "Global",
-        region: "South America",
-        badges: ["LatAm", "Spanish", "Wide Coverage"],
-        icon: "💻"
-    },
-    {
-        name: "OLX Emprego",
-        url: "https://www.olx.com.br/trabalho-e-servicos",
-        description: "Brazil's popular classifieds platform with a robust jobs and services section.",
-        category: "Global",
-        region: "South America",
-        badges: ["Brazil", "Classifieds", "Local"],
-        icon: "📌"
-    },
-
-    // SAAS & STARTUPS
-    {
-        name: "Wellfound (AngelList)",
-        url: "https://wellfound.com/jobs",
-        description: "The best place to find jobs at startups. SaaS, Fintech, and emerging tech focus.",
-        category: "SaaS",
-        region: "Global",
-        badges: ["Startups", "Equity", "SaaS"],
-        icon: "✌️"
-    },
-    {
-        name: "Y Combinator",
-        url: "https://www.ycombinator.com/jobs",
-        description: "Apply to hundreds of YC-backed startups with a single application profile.",
-        category: "SaaS",
-        region: "Global",
-        badges: ["Startups", "Top Tier", "Tech"],
-        icon: "🧡"
-    },
-    {
-        name: "Product Hunt Jobs",
-        url: "https://www.producthunt.com/jobs",
-        description: "Job listings from cutting-edge startups launching on Product Hunt daily.",
-        category: "SaaS",
-        region: "Global",
-        badges: ["Startups", "Product", "Early Stage"],
-        icon: "🐱"
-    },
-    {
-        name: "Hacker News Who's Hiring",
-        url: "https://news.ycombinator.com/jobs",
-        description: "Monthly 'Who is Hiring?' thread from the HN community. Pure signal, no noise.",
-        category: "SaaS",
-        region: "Global",
-        badges: ["Engineer", "Startups", "Community"],
-        icon: "🟧"
-    },
-    {
-        name: "Startup Jobs",
-        url: "https://startup.jobs/",
-        description: "Thousands of open roles at venture-backed and bootstrapped startups worldwide.",
-        category: "SaaS",
-        region: "Global",
-        badges: ["Startups", "VC-backed", "Global"],
-        icon: "🚀"
-    },
-
-    // FREELANCE / FAAS
-    {
-        name: "Toptal",
-        url: "https://www.toptal.com/",
-        description: "Exclusive network of the top 3% of freelance talent globally.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Elite", "Freelance", "High End"],
-        icon: "💎"
-    },
-    {
-        name: "Upwork",
-        url: "https://www.upwork.com/",
-        description: "World's largest freelance marketplace for all types of digital work.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Freelance", "Gigs", "Global"],
-        icon: "🟢"
-    },
-    {
-        name: "Fiverr",
-        url: "https://www.fiverr.com/",
-        description: "Marketplace for creative and digital services starting from micro-gigs to enterprise projects.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Gigs", "Creative", "Global"],
-        icon: "🎯"
-    },
-    {
-        name: "PeoplePerHour",
-        url: "https://www.peopleperhour.com/",
-        description: "UK-origin freelance platform popular for design, writing, and development projects.",
-        category: "FaaS",
-        region: "Europe",
-        badges: ["UK", "Freelance", "Digital"],
-        icon: "⏱️"
-    },
-    {
-        name: "Contra",
-        url: "https://contra.com/",
-        description: "Commission-free freelance platform with a portfolio-first approach for independent workers.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["0% Commission", "Portfolio", "Freelance"],
-        icon: "🎨"
-    },
-    {
-        name: "Guru",
-        url: "https://www.guru.com/",
-        description: "Freelance marketplace with workroom collaboration tools for long-term client relationships.",
-        category: "FaaS",
-        region: "Global",
-        badges: ["Freelance", "Collaboration", "Long-term"],
-        icon: "🧘"
-    },
-
-    // ASIA
-    {
-        name: "JobStreet",
-        url: "https://www.jobstreet.com/",
-        description: "Southeast Asia's largest job marketplace, dominant in Malaysia, Singapore, Philippines.",
-        category: "Global",
-        region: "Asia",
-        badges: ["SEA", "Corporate", "All Roles"],
-        icon: "🌏"
-    },
-    {
-        name: "Naukri",
-        url: "https://www.naukri.com/",
-        description: "India's #1 job portal with millions of listings across every sector.",
-        category: "Global",
-        region: "Asia",
-        badges: ["India", "All Roles", "Volume"],
-        icon: "🇮🇳"
-    },
-    {
-        name: "Foundit (Monster APAC)",
-        url: "https://www.foundit.in/",
-        description: "Formerly Monster India — a major platform for mid to senior professional roles in Asia.",
-        category: "Global",
-        region: "Asia",
-        badges: ["India", "APAC", "Mid-Senior"],
-        icon: "🔎"
-    },
-    {
-        name: "Tech In Asia Jobs",
-        url: "https://www.techinasia.com/jobs",
-        description: "The premier source for startup and tech jobs across Southeast and East Asia.",
-        category: "Tech",
-        region: "Asia",
-        badges: ["Startups", "SEA", "Tech"],
-        icon: "🏮"
-    }
+    ...globalBoards,
+    ...africaBoards,
+    ...europeBoards,
+    ...americasBoards,
+    ...asiaBoards
 ];
 
-// --- SUBMIT A BOARD (localStorage) ---
-const STORAGE_KEY = 'gjh_submissions';
 
+// --- STORAGE KEYS ---
+const STORAGE_KEY = 'gjh_submissions';
+const VOTES_KEY = 'gjh_votes';
+const USER_VOTES_KEY = 'gjh_user_votes';
+
+// --- PARTNERS ---
+function renderPartners() {
+    const partnersGrid = document.getElementById('partnersGrid');
+    if (!partnersGrid) return;
+
+    partnersGrid.innerHTML = partnerResources.map(partner => `
+        <div class="partner-card">
+            <div class="partner-badge">${partner.badge}</div>
+            <div class="partner-icon">${partner.icon}</div>
+            <div class="partner-info">
+                <h3>${partner.title}</h3>
+                <p>${partner.description}</p>
+                <a href="${partner.link}" class="partner-link">${partner.cta}</a>
+            </div>
+        </div>
+    `).join('');
+}
+
+// --- BOARDS GRID ---
+
+// --- VOTE LOGIC ---
+function getVotes() {
+    try {
+        return JSON.parse(localStorage.getItem(VOTES_KEY)) || {};
+    } catch {
+        return {};
+    }
+}
+
+function getUserVotes() {
+    try {
+        return JSON.parse(localStorage.getItem(USER_VOTES_KEY)) || [];
+    } catch {
+        return [];
+    }
+}
+
+function handleVote(boardId) {
+    const votes = getVotes();
+    const userVotes = getUserVotes();
+
+    if (userVotes.includes(boardId)) {
+        // Unvote
+        votes[boardId] = Math.max(0, (votes[boardId] || 1) - 1);
+        const index = userVotes.indexOf(boardId);
+        userVotes.splice(index, 1);
+    } else {
+        // Vote
+        votes[boardId] = (votes[boardId] || 0) + 1;
+        userVotes.push(boardId);
+    }
+
+    localStorage.setItem(VOTES_KEY, JSON.stringify(votes));
+    localStorage.setItem(USER_VOTES_KEY, JSON.stringify(userVotes));
+    filter(); // Re-render
+}
+
+// --- SUBMIT A BOARD (localStorage) ---
 function getSubmissions() {
     try {
         return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -536,6 +83,7 @@ function saveSubmission(entry) {
     submissions.unshift(entry);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(submissions));
 }
+
 
 // --- DOM REFS ---
 const grid = document.getElementById('jobBoardsGrid');
@@ -575,14 +123,25 @@ function renderBoards(filteredBoards) {
         grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-muted);">No boards found matching your search.</div>';
         return;
     }
+
+    const votes = getVotes();
+    const userVotes = getUserVotes();
+
     filteredBoards.forEach(board => {
         const card = document.createElement('div');
         card.className = 'board-card' + (board.submitted ? ' submitted-card' : '');
+        const voteCount = votes[board.id] || 0;
+        const hasVoted = userVotes.includes(board.id);
+
         card.innerHTML = `
             <div class="card-header">
                 <div class="icon-wrapper">${board.icon}</div>
                 <h3>${board.name}</h3>
                 ${board.submitted ? '<span class="community-tag">Community</span>' : ''}
+                <button class="upvote-btn ${hasVoted ? 'voted' : ''}" data-id="${board.id}">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="${hasVoted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>${voteCount}</span>
+                </button>
             </div>
             <p>${board.description}</p>
             <div class="badge-list">
@@ -596,24 +155,52 @@ function renderBoards(filteredBoards) {
         `;
         grid.appendChild(card);
     });
+
+    // Wire up upvote buttons
+    document.querySelectorAll('.upvote-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleVote(btn.dataset.id);
+        });
+    });
 }
 
-// --- FILTER ---
+
+// --- STATS ---
+function updateStats() {
+    const allBoards = [...jobBoards, ...getSubmissions()];
+    const boardCount = allBoards.length;
+    const categories = new Set(allBoards.map(b => b.category)).size;
+    const regions = new Set(allBoards.map(b => b.region)).size;
+
+    document.getElementById('statBoards').textContent = boardCount;
+    document.getElementById('statRegions').textContent = regions;
+    document.getElementById('statCategories').textContent = categories;
+}
+
+// --- FILTER & SORT ---
+const sortSelect = document.getElementById('sortSelect');
+
 function filter() {
     const searchTerm = searchInput.value.toLowerCase();
     const activeBtn = document.querySelector('.filter-btn.active');
     const filterType = activeBtn.dataset.type;
     const filterValue = activeBtn.dataset.value;
+    const sortBy = sortSelect.value;
 
     const allBoards = [...jobBoards, ...getSubmissions()];
+    const userVotes = getUserVotes();
+    const votes = getVotes();
 
-    const filtered = allBoards.filter(board => {
+    let filtered = allBoards.filter(board => {
         const matchesSearch = board.name.toLowerCase().includes(searchTerm) ||
             board.description.toLowerCase().includes(searchTerm) ||
             board.region.toLowerCase().includes(searchTerm);
 
         let matchesFilter = true;
-        if (filterValue !== 'All') {
+        if (filterValue === 'Favorites') {
+            matchesFilter = userVotes.includes(board.id);
+        } else if (filterValue !== 'All') {
             if (filterType === 'category') {
                 matchesFilter = board.category === filterValue;
             } else if (filterType === 'region') {
@@ -624,8 +211,50 @@ function filter() {
         return matchesSearch && matchesFilter;
     });
 
+    // Apply Sorting
+    if (sortBy === 'popularity') {
+        filtered.sort((a, b) => (votes[b.id] || 0) - (votes[a.id] || 0));
+    } else if (sortBy === 'name') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'newest') {
+        // Submitted boards with sub_ timestamp come first, then others
+        filtered.sort((a, b) => {
+            const aTime = a.id.startsWith('sub_') ? parseInt(a.id.split('_')[1]) : 0;
+            const bTime = b.id.startsWith('sub_') ? parseInt(b.id.split('_')[1]) : 0;
+            return bTime - aTime;
+        });
+    }
+
     renderBoards(filtered);
+    updateStats();
 }
+
+if (sortSelect) sortSelect.addEventListener('change', filter);
+
+
+// --- TIPS MODAL ---
+const tipsModal = document.getElementById('tipsModal');
+const openTipsBtn = document.getElementById('openTipsModal');
+const closeTipsBtn = document.getElementById('closeTipsModal');
+
+function openTips() {
+    tipsModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTips() {
+    tipsModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (openTipsBtn) openTipsBtn.addEventListener('click', openTips);
+if (closeTipsBtn) closeTipsBtn.addEventListener('click', closeTips);
+if (tipsModal) {
+    tipsModal.addEventListener('click', (e) => {
+        if (e.target === tipsModal) closeTips();
+    });
+}
+
 
 searchInput.addEventListener('input', filter);
 
@@ -669,6 +298,7 @@ submitForm.addEventListener('submit', (e) => {
     const category = document.getElementById('boardCategory').value;
 
     const entry = {
+        id: 'sub_' + Date.now(),
         name,
         url: url.startsWith('http') ? url : 'https://' + url,
         description,
@@ -678,6 +308,7 @@ submitForm.addEventListener('submit', (e) => {
         icon: '📌',
         submitted: true
     };
+
 
     saveSubmission(entry);
     submitForm.style.display = 'none';
@@ -691,4 +322,6 @@ submitForm.addEventListener('submit', (e) => {
 
 // --- INIT ---
 initTheme();
+renderPartners();
 renderBoards(jobBoards);
+updateStats();
