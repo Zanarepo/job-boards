@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalJobHub | The Ultimate Directory of Job Boards</title>
+    <meta name="description"
+        content="Discover the best job boards for digital products, SaaS, remote, hybrid, and freelance roles globally. Your one-stop shop for remote work.">
+
+    <!-- Google Tag Manager (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T02YNQ3W0S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T02YNQ3W0S');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav>
+        <div class="logo">GLOBAL JOB HUB</div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#boards">Job Boards</a>
+            </div>
+            <button id="openSubmitModal" class="submit-nav-btn">+ Submit a Board</button>
+            <button id="themeToggle" class="theme-toggle" title="Toggle Theme">🌙</button>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <h1>Connect with <br><span style="color: var(--primary);">Global Opportunity</span></h1>
+        <p>The definitive directory of job boards across Africa, Americas, Europe, and Asia. Find remote, SaaS, and
+            digital product roles anywhere.</p>
+
+        <div class="search-container">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search" class="search-bar" placeholder="Search by region, platform, or keyword...">
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-type="category" data-value="All">All Boards</button>
+            <div class="filter-group">
+                <button class="filter-btn" data-type="region" data-value="Africa">Africa</button>
+                <button class="filter-btn" data-type="region" data-value="Europe">Europe</button>
+                <button class="filter-btn" data-type="region" data-value="North America">North America</button>
+                <button class="filter-btn" data-type="region" data-value="South America">South America</button>
+                <button class="filter-btn" data-type="region" data-value="Asia">Asia</button>
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn" data-type="category" data-value="Remote">Remote Focus</button>
+                <button class="filter-btn" data-type="category" data-value="SaaS">SaaS/Startups</button>
+                <button class="filter-btn" data-type="category" data-value="FaaS">Freelance/FaaS</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="boards">
+        <div class="job-boards-grid" id="jobBoardsGrid">
+            <!-- Cards injected by JS -->
+        </div>
+    </main>
+
+    <!-- Submit a Board CTA Banner -->
+    <section class="submit-banner">
+        <div class="submit-banner-content">
+            <div class="submit-banner-text">
+                <h2>Know a job board we're missing?</h2>
+                <p>Help the community grow. Submit a board and get it listed for everyone to discover.</p>
+            </div>
+            <button id="openSubmitModal2" class="submit-cta-btn">+ Submit a Board</button>
+        </div>
+    </section>
+
+    <footer id="about">
+        <p>&copy; 2026 GlobalJobHub. Built for the modern remote workforce.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Designed with ❤️ for Global Talent.</p>
+    </footer>
+
+    <!-- Submit Modal -->
+    <div id="submitModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Submit a Job Board</h2>
+                <button id="closeModal" class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+
+            <form id="submitForm" novalidate>
+                <div class="form-group">
+                    <label for="boardName">Board Name <span class="required">*</span></label>
+                    <input type="text" id="boardName" placeholder="e.g. RemoteAfrica" required>
+                </div>
+                <div class="form-group">
+                    <label for="boardUrl">Website URL <span class="required">*</span></label>
+                    <input type="url" id="boardUrl" placeholder="https://example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="boardDesc">Short Description <span class="required">*</span></label>
+                    <textarea id="boardDesc" rows="3" placeholder="What makes this board unique? Who is it for?"
+                        required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="boardRegion">Region <span class="required">*</span></label>
+                        <select id="boardRegion" required>
+                            <option value="" disabled selected>Select region</option>
+                            <option value="Global">Global</option>
+                            <option value="Africa">Africa</option>
+                            <option value="North America">North America</option>
+                            <option value="South America">South America</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Asia">Asia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="boardCategory">Category <span class="required">*</span></label>
+                        <select id="boardCategory" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="Global">General / Global</option>
+                            <option value="Remote">Remote Focus</option>
+                            <option value="Tech">Tech</option>
+                            <option value="SaaS">SaaS / Startups</option>
+                            <option value="FaaS">Freelance / FaaS</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="modal-submit-btn">Submit Board →</button>
+            </form>
+
+            <div id="submitSuccess" class="submit-success">
+                <div class="success-icon">🎉</div>
+                <h3>Board Submitted!</h3>
+                <p>Thanks for contributing to the community. It'll appear in the directory now.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Wire up the second submit button in the banner
+        document.getElementById('openSubmitModal2').addEventListener('click', () => {
+            document.getElementById('openSubmitModal').click();
+        });
+    </script>
+</body>
+
+</html>
