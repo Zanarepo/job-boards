@@ -5,7 +5,7 @@
 
 class Analytics {
     constructor() {
-        this.namespace = 'globaljobhub.netlify.app'; // Change to your domain if different
+        this.namespace = 'jobhubs.vercel.app'; // Updated to your Vercel domain
         this.visitKey = 'total_visits';
         this.storageKey = 'gjh_last_visit';
         this.init();
